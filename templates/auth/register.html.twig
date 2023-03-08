@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign-up | Devboard{% endblock %}
+
+{% block layout %}
+
+<main>
+    <div class="container-fluid mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="auth-card card p-2">
+                <div class="card-body auth-body">
+
+                    <h2 class="text-center pb-5">Create account</h2>
+                    {{ form_start(register_form, {'action': path('register'), 'method': 'POST'}) }}
+
+                    <div class="my-3">
+                        {{ form_row(register_form.email, {
+                            label: 'Email :'
+                        }) }}
+                    </div>
+
+                    <div class="my-3">
+                        {{ form_row(register_form.password, {
+                            label: 'Password :'
+                        }) }}
+                    </div>
+
+                    <div class="my-5">
+                        <div class="d-flex flex-row px-5">
+                            {{ form_row(register_form.check, { 'label': ' ' }) }}
+                            <p class="mx-1">{{ check_message }}</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button name="register" class="btn btn-success mb-4" type="submit">Create account</button>
+                        <a href="{{ path('login') }}" class="btn btn-outline-light">Sign in</a>
+                    </div>
+
+                    {{ form_end(register_form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

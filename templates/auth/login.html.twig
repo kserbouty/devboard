@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign in | Devboard{% endblock %}
+
+{% block layout %}
+<main>
+
+    <div class="container-fluid mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="auth-card card p-2">
+                <div class="card-body auth-body">
+
+                    <h2 class="text-center pb-5">Sign in</h2>
+
+                    <form action="{{ path('login') }}" method="post">
+                        <div class="my-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input id="email" class="form-control" type="email" name="email"
+                                   value="{{ last_email }}" autocomplete="email" required autofocus/>
+                        </div>
+
+                        <div class="my-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input id="password" class="form-control" type="password" name="password"
+                                   autocomplete="current-password" required>
+                        </div>
+
+                        <div class="my-5">
+                            <div class="d-flex flex-row px-5">
+                                <label class="form-label" for="_remember_me"></label>
+                                <input id="_remember_me" type="checkbox" class="mx-2" name="_remember_me">
+                                <p class="mx-1">{{ check_message }}</p>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        <div class="text-center">
+                            <button name="login" class="btn btn-success mb-4" type="submit">Sign in</button>
+                            <a href="{{ path('register') }}" class="btn btn-outline-light">Create an account</a>
+                        </div>
+
+                        {% if error %}
+                            <div class="alert alert-danger">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <div class="my-3 text-center">
+                                You are logged in as {{ app.user.userIdentifier }},
+                                <a href="{{ path('logout') }}">Logout</a>
+                            </div>
+                        {% endif %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

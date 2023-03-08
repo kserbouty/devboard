@@ -6,7 +6,7 @@ Kanban board for project management.
 
 - Symfony 5.4
 - PHP 8.0
-- MySQL 8.0
+- MariaDB 10.6
 - Twig 3.5
 - Bootstrap 5.2
 - Apache 2.4

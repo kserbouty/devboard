@@ -2,6 +2,7 @@
 
 {% block layout %}
 
+<main>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="workspaces" viewBox="0 0 16 16">
             <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
@@ -32,8 +33,8 @@
                 <li><a href="{{ path('home') }}#contact" class="nav-link px-2 link-dark">Contact</a></li>
             </ul>
             <div class="col-md-3 text-end">
-                <button type="button" class="btn-login btn btn-outline-primary me-2">Sign-in</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <a href="{{ path('login') }}" type="button" class="btn-login btn btn-outline-primary me-2">Sign-in</a>
+                <a href="{{ path('register') }}" type="button" class="btn btn-primary">Sign-up</a>
             </div>
         </header>
     </div>
@@ -328,5 +329,6 @@
             <p class="text-center text-muted">Copyright © 2023 Devboard, Inc. All right reserved.</p>
         </footer>
     </div>
+</main>
 
 {% endblock %}

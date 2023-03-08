@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends AbstractController
+class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route(path: '/', name: 'home', methods: 'GET')]
     public function index(): Response
     {
         return $this->render('layout.html.twig');
